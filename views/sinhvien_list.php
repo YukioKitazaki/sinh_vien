@@ -81,51 +81,44 @@ thoại" required>
             <button type="submit">Thêm mới</button>
         </form>
         <h2>Danh sách sinh viên</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Họ và Tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($students as $student): ?>
-                    <tr>
-                        <td><?php echo $student['id']; ?></td>
-                        <td><?php echo
-                            htmlspecialchars($student['name']); ?></td>
-                        <td><?php echo
-                            htmlspecialchars($student['email']); ?></td>
-                        <td><?php echo
-                            htmlspecialchars($student['phone']); ?></td>
-                        <td>
-                            <a href="index.php?action=edit&id=<?php echo $student['id'];
-                                                                ?>">Sửa</a>
-                            |
-                            <a href="index.php?action=delete&id=<?php echo
-                                                                $student['id']; ?>"
 
-                                onclick="return confirm('Bạn có chắc chắn muốn xóa sinh viên này ra khỏi danh sách lớp K17 không?');">
-                                Xóa
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                <?php if (empty($students)): ?>
-                    <tr>
-                        <td colspan="4">Chưa có sinh viên
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Họ và Tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($students as $student): ?>
+            <tr>
+                <td><?php echo $student['id']; ?></td>
+                <td><?php echo
 
-                            nào.</td>
-                    </tr>
+                    htmlspecialchars($student['name']); ?></td>
 
-                <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
-</body>
+                <td><?php echo
 
-</html>
+                    htmlspecialchars($student['email']); ?></td>
 
+                <td><?php echo
+
+                    htmlspecialchars($student['phone']); ?></td>
+
+                <td>
+                    <a href="index.php?action=edit&id=<?php echo
+
+                                                        $student['id']; ?>">Sửa</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        <?php if (empty($students)): ?>
+            <tr>
+                <td colspan="5">Chưa có sinh viên nào.</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
 </table>

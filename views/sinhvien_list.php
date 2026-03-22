@@ -128,43 +128,4 @@ thoại" required>
 
 </html>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Họ và Tên</th>
-            <th>Email</th>
-            <th>Số điện thoại</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($students as $student): ?>
-            <tr>
-                <td><?php echo $student['id']; ?></td>
-                <td><?php echo
-
-                    htmlspecialchars($student['name']); ?></td>
-
-                <td><?php echo
-
-                    htmlspecialchars($student['email']); ?></td>
-
-                <td><?php echo
-
-                    htmlspecialchars($student['phone']); ?></td>
-
-                <td>
-                    <a href="index.php?action=edit&id=<?php echo
-
-                                                        $student['id']; ?>">Sửa</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        <?php if (empty($students)): ?>
-            <tr>
-                <td colspan="5">Chưa có sinh viên nào.</td>
-            </tr>
-        <?php endif; ?>
-    </tbody>
 </table>
